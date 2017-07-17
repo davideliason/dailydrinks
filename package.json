@@ -4,7 +4,7 @@
   "description": "MERN app",
   "main": "index.js",
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/davideliason/dailydrinks#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30"
   }
 }
