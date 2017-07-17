@@ -1,5 +1,6 @@
 const express		= require('express');
 const path 			= require('path');
+const bodyParser 	= require('body-parser');
 
 const app 			= express();
 const mongodb  	    = require('mongodb');
@@ -11,8 +12,10 @@ require('dotenv').config();
 const port 			= process.env.PORT || 5000;
 const drinks 		= require('./drinks.js');
 
-
+// middleware
 app.use(express.static(path.join(__dirname,'/public')));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 
 MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
@@ -36,17 +39,13 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 	  res.send('i am a sample');
 	});
 
-	app.post('/sample', (req,res) => {
-		res.send('POST request has been received');
+	app.post('/serverDrink', (req,res) => {
+		console.log(req.body);
 	});
 
 	app.get('/samplePostForm', (req,res) => {
 		res.sendFile(path.join(__dirname,'/public','/index.html'));
 	});
-
-	
-
-
 
 	app.listen(port);
 	console.log(`server up at port ${port}`);
