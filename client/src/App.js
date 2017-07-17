@@ -24,7 +24,12 @@ class App extends Component {
     const drinks = this.state.drinks;
     return (
       <div>
-        {drinks.length}
+        <h3>drinks</h3>
+        <ul>
+          {drinks.map( (drink) => 
+              <li key={drink._id}> {drink.drink} : {drink.amount}</li>
+            )}
+        </ul>
       </div>
     );
   }
