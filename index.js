@@ -3,9 +3,9 @@ const path 			= require('path');
 
 const app 			= express();
 const port 			= process.env.PORT || 5000;
-// require('dotenv').config();
+require('dotenv').config();
 
-// app.use(express.static(path.join(__dirname,'/public')));
+app.use(express.static(path.join(__dirname,'/public')));
 
 app.get('/sample', (req,res) => {
 	res.send('i am a sample');
