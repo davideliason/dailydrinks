@@ -6,7 +6,7 @@ class Drink extends Component {
   render(){
     return(
         <div>
-          <li key={this.props.key}> drink: {this.props.drink} amount:{this.props.amount}</li>
+          <li key={this.props.key}> drink: <span className="drinkColor">{this.props.drink}</span> amount:{this.props.amount}</li>
         </div>
       );
   }
