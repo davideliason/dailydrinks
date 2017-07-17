@@ -11,10 +11,9 @@ require('dotenv').config();
 
 const port 			= process.env.PORT || 5000;
 const drinks 		= require('./drinks.js');
-var str;
 
 // middleware
-app.use(express.static(path.join(__dirname,'/client/public')));
+app.use(express.static(path.join(__dirname,'/client/build')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -25,7 +24,7 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 
     db = database;
 
-
+    // pass persistence data from mLab to react via proxy
 	app.get('/drinklog', (req,res) => {
 		db.collection('drinklog').find().toArray(function(err,result){
 			if(err)return console.log(err)
@@ -34,7 +33,6 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 		   	console.log(result[i].drink);
 		   }
 		   res.json(result);
-
 		});
 	});
 
@@ -45,6 +43,7 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 	  res.send('i am a sample');
 	});
 
+    // save drink data from form
 	app.post('/serverDrink', (req,res) => {
 		console.log(req.body);
 		db.collection('drinklog').save(req.body, (err,results) => {
@@ -55,11 +54,11 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 	});
 
 	app.get('/samplePostForm', (req,res) => {
-		res.sendFile(path.join(__dirname,'/public','/index.html'));
+		res.sendFile(path.join(__dirname,'/build','/index.html'));
 	});
 
 	app.get('*', (req,res) => {
-		res.sendFile(path.join(__dirname,'/client/public/index.html'));
+		res.sendFile(path.join(__dirname,'/client/build/index.html'));
 	});
 
 	app.listen(port);
