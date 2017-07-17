@@ -11,6 +11,7 @@ require('dotenv').config();
 
 const port 			= process.env.PORT || 5000;
 const drinks 		= require('./drinks.js');
+var str;
 
 // middleware
 app.use(express.static(path.join(__dirname,'/public')));
@@ -28,7 +29,10 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 	app.get('/drinklog', (req,res) => {
 		db.collection('drinklog').find().toArray(function(err,result){
 			if(err)return console.log(err)
-			console.log("results here:" + result[0].drink);
+			// res.json(result);
+		   for(var i = 0; i < result.length; i++){
+		   	console.log(result[i].drink);
+		   }
 		});
 	});
 
@@ -44,7 +48,7 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 		db.collection('drinklog').save(req.body, (err,results) => {
 			if(err) return console.log(err)
 			console.log('saved to db');
-		    res.redirect('/');
+		    res.redirect('/drinklog');
 		});
 	});
 
