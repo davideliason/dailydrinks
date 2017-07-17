@@ -13,6 +13,7 @@ class Drink extends Component {
 }
 
 class App extends Component {
+ 
   constructor(props){
     super(props);
     this.state = {
@@ -35,15 +36,12 @@ class App extends Component {
     return (
       <div>
         <h3>drinks</h3>
-       
-
           <ul>
            {drinks.map( (drink) =>
             <Drink key={drink._id} drink={drink.drink} amount={drink.amount} />
             )}
         </ul>
         <button className="more" onClick={this.getDrinks}>Refresh</button>
-        <Drink />
       </div>
     );
   }
