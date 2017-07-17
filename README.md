@@ -26,3 +26,6 @@ $ yarn start
 5. If you open up a browser to 'localhost:5000/samplePostForm' you can add drinks
 6. In another broswer window, you can go to 'localhost:3000' to view the react app
 7. You can also go to [Heroku](https://dailydrinks-mern.herokuapp.com/) to see live
+
+![Express Drink Input](./express_server_form_input.png?raw=true "Form Input")
+![Live Heroku View](./live_heroku_view.png?raw=true "Heroku")
