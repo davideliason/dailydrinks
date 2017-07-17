@@ -41,6 +41,11 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 
 	app.post('/serverDrink', (req,res) => {
 		console.log(req.body);
+		db.collection('drinklog').save(req.body, (err,results) => {
+			if(err) return console.log(err)
+			console.log('saved to db');
+		    res.redirect('/');
+		});
 	});
 
 	app.get('/samplePostForm', (req,res) => {
