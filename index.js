@@ -11,9 +11,15 @@ app.get('/sample', (req,res) => {
 	res.send('i am a sample');
 });
 
+app.post('/sample', (req,res) => {
+	res.send('POST request has been received');
+});
+
 app.get('/testPage', (req,res) => {
 	res.sendFile(path.join(__dirname,'/public','/index.html'));
 });
+
+
 
 app.listen(port);
 console.log(`server up at port ${port}`);
