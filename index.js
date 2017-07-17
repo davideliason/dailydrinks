@@ -9,25 +9,32 @@ const drinks 		= require('./drinks.js');
 
 require('dotenv').config();
 
+MongoClient.connect(process.env.MONGOLAB_URI, (err,database) => {
+	if(err) return console.log(err)
+	console.log('connected to mLab db');
+	db = database;
+
+	app.use(express.static(path.join(__dirname,'/public')));
+	// use Router
+	app.use('/drinks', drinks);
+
+	app.get('/sample', (req,res) => {
+	  res.send('i am a sample');
+	});
+
+	app.post('/sample', (req,res) => {
+		res.send('POST request has been received');
+	});
+
+	app.get('/samplePostForm', (req,res) => {
+		res.sendFile(path.join(__dirname,'/public','/index.html'));
+	});
 
 
-app.use(express.static(path.join(__dirname,'/public')));
-// use Router
-app.use('/drinks', drinks);
 
-app.get('/sample', (req,res) => {
-	res.send('i am a sample');
-});
+	app.listen(port);
+	console.log(`server up at port ${port}`);
 
-app.post('/sample', (req,res) => {
-	res.send('POST request has been received');
-});
-
-app.get('/samplePostForm', (req,res) => {
-	res.sendFile(path.join(__dirname,'/public','/index.html'));
-});
+ });
 
 
-
-app.listen(port);
-console.log(`server up at port ${port}`);
