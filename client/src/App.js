@@ -30,6 +30,7 @@ class App extends Component {
               <li key={drink._id}> {drink.drink} : {drink.amount}</li>
             )}
         </ul>
+        <button className="more" onClick={this.getDrinks}>Refresh</button>
       </div>
     );
   }
