@@ -34,6 +34,7 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 		   	console.log(result[i].drink);
 		   }
 		});
+		res.redirect('/samplePostForm');
 	});
 
 	// use Router
