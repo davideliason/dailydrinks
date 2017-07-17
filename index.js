@@ -14,7 +14,7 @@ const drinks 		= require('./drinks.js');
 var str;
 
 // middleware
-app.use(express.static(path.join(__dirname,'/public')));
+app.use(express.static(path.join(__dirname,'/client/public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -56,6 +56,10 @@ MongoClient.connect( process.env.MONGOLAB_URI, (err,database) => {
 
 	app.get('/samplePostForm', (req,res) => {
 		res.sendFile(path.join(__dirname,'/public','/index.html'));
+	});
+
+	app.get('*', (req,res) => {
+		res.sendFile(path.join(__dirname,'/client/public/index.html'));
 	});
 
 	app.listen(port);
