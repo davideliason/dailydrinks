@@ -15,7 +15,7 @@ app.post('/sample', (req,res) => {
 	res.send('POST request has been received');
 });
 
-app.get('/testPage', (req,res) => {
+app.get('/samplePostForm', (req,res) => {
 	res.sendFile(path.join(__dirname,'/public','/index.html'));
 });
 
