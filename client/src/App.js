@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+class Drink extends Component {
+  render(){
+    return(
+        <div>
+          <li key={this.props.key}> drink: {this.props.drink} amount:{this.props.amount}</li>
+        </div>
+      );
+  }
+}
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -25,12 +35,15 @@ class App extends Component {
     return (
       <div>
         <h3>drinks</h3>
-        <ul>
-          {drinks.map( (drink) => 
-              <li key={drink._id}> {drink.drink} : {drink.amount}</li>
+       
+
+          <ul>
+           {drinks.map( (drink) =>
+            <Drink key={drink._id} drink={drink.drink} amount={drink.amount} />
             )}
         </ul>
         <button className="more" onClick={this.getDrinks}>Refresh</button>
+        <Drink />
       </div>
     );
   }
