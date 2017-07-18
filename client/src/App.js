@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from 'react-bootstrap/lib/Button';
 
 class Drink extends Component {
   render(){
@@ -41,7 +42,7 @@ class App extends Component {
             <Drink key={drink._id} drink={drink.drink} amount={drink.amount} />
             )}
         </ul>
-        <button className="more" onClick={this.getDrinks}>Refresh</button>
+        <Button bsStyle="success" onClick={this.getDrinks}>Refresh</Button>
       </div>
     );
   }
