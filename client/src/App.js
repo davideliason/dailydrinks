@@ -45,7 +45,7 @@ class App extends Component {
             )}
         </ul>
         <Button bsStyle="success" onClick={this.getDrinks}>Refresh</Button>
-        <a href="https://github.com/davideliason/dailydrinks"><Button bsStyle="warning">Github Repo</a>
+        <a href="https://github.com/davideliason/dailydrinks">Github Repo</a>
         
       </div>
     );
