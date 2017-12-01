@@ -38,6 +38,7 @@ class App extends Component {
       <div>
         <h3>drinks</h3>
         <p>Please run express local server to access input fields</p>
+        <a href="https://github.com/davideliason/dailydrinks">Back to Github</a>
           <ul>
            {drinks.map( (drink) =>
             <Drink key={drink._id} drink={drink.drink} amount={drink.amount} />
