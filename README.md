@@ -5,9 +5,9 @@
 Description:
 Express is used to both act as a API server serving files and routes, but also serves the react views. When express is first spun up, at localhost:5000, drinks can be added to the database through the form. The Express server also serves the persistent data values from mongodb via proxy to the react app, which are then used to set state within the parent component. This is a preliminary approach to unidirectional data flow without using flux or redux. These drink values are then displayed in react.
 
-     - [Github](https://github.com/davideliason/davideliason.github.io)
+##### [Github](https://github.com/davideliason/davideliason.github.io)
 
-     - [Heroku](https://dailydrinks-mern.herokuapp.com/)
+##### [Heroku](https://dailydrinks-mern.herokuapp.com/)
 
 To Use:
 1. Clone the repo
