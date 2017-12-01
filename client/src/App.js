@@ -37,14 +37,16 @@ class App extends Component {
     return (
       <div>
         <h3>drinks</h3>
-        <a href="https://github.com/davideliason/dailydrinks">Back to Github</a>
+        <h5>Please run express local server to access input fields</h5>
+        
           <ul>
            {drinks.map( (drink) =>
             <Drink key={drink._id} drink={drink.drink} amount={drink.amount} />
             )}
         </ul>
         <Button bsStyle="success" onClick={this.getDrinks}>Refresh</Button>
-        <p>Please run express local server to access input fields</p>
+        <a href="https://github.com/davideliason/dailydrinks"><Button bsStyle="warning">Github Repo</a>
+        
       </div>
     );
   }
